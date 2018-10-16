@@ -15,13 +15,13 @@ public abstract class NuomosUzsakymas {
     public float skaiciuotiKaina() {
         float uzsakymoKaina = 0;
         for (Automobilis automobilis: automobiliai) {
-            uzsakymoKaina += IkainuotiUzsakymoNuomosKaina(automobilis.getKaina(), automobilis.getMetai());
-            uzsakymoKaina += PridetiDraudimoKaina(automobilis.getKaina(), automobilis.getMetai(), automobilis.getGalingumas());
+            uzsakymoKaina += IkainuotiUzsakymoNuomosKaina(automobilis.getKaina(), automobilis.getMetai(), automobilis.getGalingumas());
+//            uzsakymoKaina += PridetiDraudimoKaina(automobilis.getKaina(), automobilis.getMetai(), automobilis.getGalingumas());
         }
         System.out.println("Jūsų užsakymo kaina yra: "  + uzsakymoKaina);
         return uzsakymoKaina;
     }
 
-    public abstract float PridetiDraudimoKaina(float kaina, int metai, int galingumas);
-    public abstract float IkainuotiUzsakymoNuomosKaina(float kaina, int metai);
+//    public abstract float PridetiDraudimoKaina(float kaina, int metai, int galingumas);
+    public abstract float IkainuotiUzsakymoNuomosKaina(float kaina, int metai, int galingumas);
 }
