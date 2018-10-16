@@ -1,11 +1,21 @@
-public class KainosPolitikaPaprasta_DraudimasRaudonas extends NuomosUzsakymas {
-    @Override
-    public float PridetiDraudimoKaina(float kaina, int metai, int galingumas) {
-        return 0;
+public class KainosPolitikaPaprasta_DraudimasRaudonas extends KainosPolitikaPaprasta {
+
+    public float VariklioGalingumoIrDraudimoKainosKoeficientas(float kaina, float galingumas) {
+        if (galingumas > 200)
+        kaina = kaina * 2;
+        return kaina;
     }
 
     @Override
-    public float IkainuotiUzsakymoNuomosKaina(float kaina, int metai) {
-        return 0;
+    public float IkainuotiUzsakymoNuomosKaina(float kaina, int metai, int galingumas) {
+        float uzsakymoKaina = ApskaiciuotiDraudimoKaina(kaina, metai, galingumas);
+        uzsakymoKaina += KainosPolitika(kaina, metai);
+        uzsakymoKaina += ApskaiciuotiDraudimoKaina(kaina, metai, galingumas);
+        return uzsakymoKaina;
+    }
+
+    @Override
+    public float ApskaiciuotiDraudimoKaina(float kaina, int metai, int galingumas) {
+        return VariklioGalingumoIrDraudimoKainosKoeficientas(kaina, galingumas);
     }
 }

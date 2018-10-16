@@ -1,7 +1,7 @@
 public class KainosPolitikaSudetinga_DraudimasRaudonas extends KainosPolitikaSudetinga{
 
-    public float VariklioGalingumoIrDraudimoKainosKoeficientas(float kaina, float galingumas) {
-        kaina = kaina + kaina * (galingumas / 100);
+    public float VariklioGalingumoIrDraudimoKainosKoeficientas(float kaina, float galingumas) {        if (galingumas > 200)
+        kaina = kaina * 2;
         return kaina;
     }
 
