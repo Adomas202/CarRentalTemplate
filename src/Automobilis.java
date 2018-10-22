@@ -22,12 +22,4 @@ public class Automobilis {
     public int getGalingumas() {
         return galingumas;
     }
-
-    public String getEkologiskumas() {
-        return ekologiskumas;
-    }
-
-    public void setEkologiskumas(String ekologiskumas) {
-        this.ekologiskumas = ekologiskumas;
-    }
 }

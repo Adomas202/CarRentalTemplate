@@ -1,21 +1,17 @@
-public class KainosPolitikaPaprasta_DraudimasRaudonas extends KainosPolitikaPaprasta {
+import Utils.Skaiciavimas;
 
-    public float VariklioGalingumoIrDraudimoKainosKoeficientas(float kaina, float galingumas) {
-        if (galingumas > 200)
-        kaina = kaina * 2;
-        return kaina;
-    }
+public class KainosPolitikaPaprasta_DraudimasRaudonas extends KainosPolitikaPaprasta {
 
     @Override
     public float IkainuotiUzsakymoNuomosKaina(float kaina, int metai, int galingumas) {
         float uzsakymoKaina = ApskaiciuotiDraudimoKaina(kaina, metai, galingumas);
-        uzsakymoKaina += KainosPolitika(kaina, metai);
+        uzsakymoKaina += Skaiciavimas.KainosPolitikaPaprastasSkaiciavimas(kaina, metai);
         uzsakymoKaina += ApskaiciuotiDraudimoKaina(kaina, metai, galingumas);
         return uzsakymoKaina;
     }
 
     @Override
     public float ApskaiciuotiDraudimoKaina(float kaina, int metai, int galingumas) {
-        return VariklioGalingumoIrDraudimoKainosKoeficientas(kaina, galingumas);
+        return Skaiciavimas.VariklioDraudimoKoeficientasRaudonas(kaina, galingumas);
     }
 }
